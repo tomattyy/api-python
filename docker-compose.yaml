@@ -16,8 +16,11 @@ services:
       MONGO_USER: adminmongo
       MONGO_PASSWORD: adminmongopassword
       MONGO_DATABASE: api-python
+    
+    depends_on:
+      - mongodb
 
-      restart: always
+    restart: always
 
   mongodb:
     image: mongo:8.0
