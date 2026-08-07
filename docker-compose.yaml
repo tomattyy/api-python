@@ -11,11 +11,7 @@ services:
     - "8000:8000"
 
     environment:
-      MONGO_HOST: mongodb
-      MONGO_PORT: 27017
-      MONGO_USER: adminmongo
-      MONGO_PASSWORD: adminmongopassword
-      MONGO_DATABASE: mongodb
+      MONGO_URL: mongodb://admin:admin@mongodb:27017
     
     depends_on:
       - mongodb
@@ -28,8 +24,8 @@ services:
     container_name: mongodb
 
     environment:
-      MONGO_INITDB_ROOT_USERNAME: adminmongo
-      MONGO_INITDB_ROOT_PASSWORD: adminmongopassword
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
 
     ports:
       - "27017:27017"
