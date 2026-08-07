@@ -1,7 +1,7 @@
 # STAGE 1 - BUILDER
 FROM python:3.12-slim AS builder
 
-WORKDIR /api
+WORKDIR /app
 
 RUN python -m venv /opt/venv
 
