@@ -15,7 +15,7 @@ services:
       MONGO_PORT: 27017
       MONGO_USER: adminmongo
       MONGO_PASSWORD: adminmongopassword
-      MONGO_DATABASE: api-python
+      MONGO_DATABASE: mongodb
     
     depends_on:
       - mongodb
