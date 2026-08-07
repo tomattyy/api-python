@@ -1,7 +1,7 @@
 # STAGE 1 - BUILDER
 FROM python:3.12-slim AS builder
 
-WORKDIR /app
+WORKDIR /api
 
 RUN python -m venv /opt/venv
 
@@ -9,7 +9,8 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 COPY requirements.txt .
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
 
 #STAGE 2 - Runtime
 FROM python:3.12-slim AS runtime 
