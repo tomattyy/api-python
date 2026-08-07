@@ -1,0 +1,40 @@
+services:
+
+  api-python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: api-produtos
+
+    ports:
+    - "8000:8000"
+
+    environment:
+      MONGO_HOST: mongodb
+      MONGO_PORT: 27017
+      MONGO_USER: adminmongo
+      MONGO_PASSWORD: adminmongopassword
+      MONGO_DATABASE: api-python
+
+      restart: always
+
+  mongodb:
+    image: mongo:8.0
+
+    container_name: mongodb
+
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: adminmongo
+      MONGO_INITDB_ROOT_PASSWORD: adminmongopassword
+
+    ports:
+      - "27017:27017"
+    
+    volumes:
+      - mongodb_data:/data/db
+
+    restart: always
+
+volumes:
+  mongodb_data:
