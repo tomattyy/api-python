@@ -11,7 +11,7 @@ services:
     - "8000:8000"
 
     environment:
-      MONGO_URL: mongodb://admin:admin@mongodb:27017
+      MONGO_URL: mongodb://admin:admin@mongodb:27017/loja_automotiva?authSource=admin
     
     depends_on:
       - mongodb
